@@ -1,0 +1,10 @@
+/* ============================================================
+   Thiago Liguori — Webfonts
+   Display / UI : Hanken Grotesk (heavy friendly geometric grotesk)
+   Editorial body : Lora (warm transitional serif)
+   NOTE: These are close Google Fonts matches to the live site's
+   type. Swap the @font-face / import for the licensed originals
+   if/when available. See readme.md › Visual Foundations.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');

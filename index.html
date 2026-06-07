@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thiago Liguori — Saúde e inovação para líderes</title>
+<meta name="description" content="Dr. Thiago Liguori — médico, PhD e LinkedIn Top Voice. Palestras, painéis e workshops sobre saúde, inovação e tecnologia para líderes." />
+
+<!-- Design system -->
+<link rel="stylesheet" href="_ds/thiago-site-d7291f54-6cfc-4f05-b1d9-0a9106cd7d83/tokens/fonts.css" />
+<link rel="stylesheet" href="_ds/thiago-site-d7291f54-6cfc-4f05-b1d9-0a9106cd7d83/tokens/colors.css" />
+<link rel="stylesheet" href="_ds/thiago-site-d7291f54-6cfc-4f05-b1d9-0a9106cd7d83/tokens/typography.css" />
+<link rel="stylesheet" href="_ds/thiago-site-d7291f54-6cfc-4f05-b1d9-0a9106cd7d83/tokens/spacing.css" />
+<link rel="stylesheet" href="_ds/thiago-site-d7291f54-6cfc-4f05-b1d9-0a9106cd7d83/styles.css" />
+
+<!-- Custom layout -->
+<link rel="stylesheet" href="app/site.css" />
+</head>
+<body>
+<div id="root"></div>
+
+<!-- React + Babel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- Disable the DS bundle's built-in demo app auto-mount; we render our own. -->
+<script>window.__tlRoot = true;</script>
+
+<!-- Design system bundle (plain JS, after React) -->
+<script src="_ds/thiago-site-d7291f54-6cfc-4f05-b1d9-0a9106cd7d83/_ds_bundle.js"></script>
+
+<!-- App -->
+<script type="text/babel" src="app/sections-a.jsx"></script>
+<script type="text/babel" src="app/sections-b.jsx"></script>
+<script type="text/babel" src="app/app.jsx"></script>
+</body>
+</html>

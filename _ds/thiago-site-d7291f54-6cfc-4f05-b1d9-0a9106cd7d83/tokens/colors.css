@@ -1,0 +1,77 @@
+/* ============================================================
+   Thiago Liguori — Color tokens
+   Sampled from the live site. The brand runs on one decisive
+   royal blue, a deep navy for inverted surfaces, near-black
+   ink for display type, and cool off-white neutrals.
+   ============================================================ */
+
+:root {
+  /* — Brand blue — the single accent. Buttons, links, key words, cards. */
+  --blue-50:  #ebf0ff;
+  --blue-100: #d6e1ff;
+  --blue-200: #adc2ff;
+  --blue-300: #7ea9e6;  /* portrait glow */
+  --blue-400: #4f7bff;
+  --blue-500: #2461ff;  /* PRIMARY */
+  --blue-600: #1a4fe0;  /* hover */
+  --blue-700: #1640b8;  /* press */
+
+  /* — Navy — inverted / dark sections, gradient backdrops */
+  --navy-950: #000a26;
+  --navy-900: #000e33;  /* darkest surface */
+  --navy-800: #06214f;
+  --navy-700: #073275;  /* radial-glow highlight */
+
+  /* — Neutrals — cool grey ramp */
+  --white:    #ffffff;
+  --gray-50:  #f7f8fa;
+  --gray-100: #f0f1f4;  /* page muted / hero wash */
+  --gray-200: #e3e6ec;
+  --gray-300: #cdd3de;  /* outline / hairline-strong */
+  --gray-400: #a8b0bf;
+  --gray-500: #7c8493;
+  --gray-600: #565e6e;
+  --gray-700: #3a404c;
+  --gray-800: #20242d;
+  --gray-900: #0a0a0a;  /* ink — display headlines */
+
+  /* — Support / status (derived, harmonised in oklch) — */
+  --green-500: #18a957;
+  --amber-500: #e8a317;
+  --red-500:   #e5484d;
+
+  /* ---------- Semantic aliases ---------- */
+  --color-primary:        var(--blue-500);
+  --color-primary-hover:  var(--blue-600);
+  --color-primary-press:  var(--blue-700);
+  --color-on-primary:     var(--white);
+
+  --link:                 var(--blue-500);
+  --link-hover:           var(--blue-600);
+
+  /* Surfaces */
+  --surface-page:    var(--white);
+  --surface-muted:   var(--gray-100);
+  --surface-card:    var(--white);
+  --surface-dark:    var(--navy-900);
+  --surface-accent:  var(--blue-500);
+
+  /* Text */
+  --text-ink:        var(--gray-900);   /* display headlines */
+  --text-strong:     var(--gray-800);
+  --text-body:       var(--gray-700);
+  --text-muted:      var(--gray-500);
+  --text-on-dark:        var(--white);
+  --text-on-dark-muted:  rgba(255, 255, 255, 0.72);
+  --text-on-primary:     var(--white);
+
+  /* Borders */
+  --border-subtle:   var(--gray-200);
+  --border-default:  var(--gray-300);
+  --border-strong:   var(--gray-400);
+  --border-on-dark:  rgba(255, 255, 255, 0.22);
+
+  /* Gradients / washes */
+  --wash-hero:   radial-gradient(120% 120% at 85% 30%, var(--blue-300) 0%, rgba(126,169,230,0) 55%), var(--gray-100);
+  --wash-navy:   radial-gradient(90% 120% at 90% 40%, var(--navy-700) 0%, var(--navy-900) 60%);
+}
