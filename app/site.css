@@ -32,9 +32,18 @@ a { color: inherit; }
   letter-spacing: var(--ls-overline);
   color: var(--color-primary);
   margin: 0 0 var(--space-4);
+  display: flex; align-items: center; gap: var(--space-2);
+}
+.eyebrow::before {
+  content: '●';
+  font-size: 0.45em;
+  color: var(--color-primary);
+  flex-shrink: 0;
 }
 .section--blue .eyebrow,
 .section--navy .eyebrow { color: var(--blue-200); }
+.section--blue .eyebrow::before,
+.section--navy .eyebrow::before { color: var(--blue-200); }
 
 .section-head { max-width: 760px; margin-bottom: var(--space-12); }
 .section-title {
@@ -61,20 +70,37 @@ a { color: inherit; }
 
 .text-blue { color: var(--color-primary); }
 
-/* ---------- Header ---------- */
+/* ---------- Header — floating pill ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,0.72);
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+  padding: var(--space-3) var(--space-5);
+  background: transparent;
 }
-.site-header.is-stuck { border-bottom-color: var(--border-subtle); }
-.site-header .tl-nav { max-width: var(--container-max); margin-inline: auto; }
+.site-header .tl-nav {
+  max-width: var(--container-max); margin-inline: auto;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.70);
+  box-shadow: 0 4px 24px rgba(0,14,51,0.09);
+  transition: box-shadow var(--dur-base) var(--ease-out);
+}
+.site-header.is-stuck .tl-nav {
+  box-shadow: 0 6px 32px rgba(0,14,51,0.16);
+}
 
 /* ---------- Hero ---------- */
 .hero { position: relative; overflow: hidden; background: var(--wash-hero); }
+/* dot-grid texture */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background-image: radial-gradient(circle, rgba(37,99,235,0.14) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+.hero .container { position: relative; z-index: 1; }
 .hero__grid {
   display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--space-16);
   align-items: center; padding-block: clamp(2.5rem, 1rem + 6vw, 5.5rem);
@@ -98,6 +124,35 @@ a { color: inherit; }
 }
 .hero__cta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
 .hero__badges { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+/* italic accent word in title */
+.hero__title-em { font-style: italic; color: var(--color-primary); }
+
+/* stats bar in hero */
+.hero__stats-bar {
+  display: inline-flex; align-items: center; gap: var(--space-5);
+  margin-top: var(--space-8);
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(37,99,235,0.13);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4) var(--space-6);
+  box-shadow: 0 2px 14px rgba(0,14,51,0.07);
+}
+.hero__stat { display: flex; flex-direction: column; gap: 2px; }
+.hero__stat-num {
+  font-family: var(--font-display); font-weight: var(--fw-extrabold);
+  font-size: var(--fs-h3); line-height: 1;
+  color: var(--color-primary); letter-spacing: var(--ls-tight);
+}
+.hero__stat-label {
+  font-size: var(--fs-caption); color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: var(--ls-wide);
+  white-space: nowrap;
+}
+.hero__stat-divider {
+  width: 1px; height: 36px; background: var(--border-subtle); flex-shrink: 0;
+}
 
 /* portrait */
 .portrait { position: relative; justify-self: center; width: 100%; max-width: 420px; }
@@ -200,6 +255,14 @@ a { color: inherit; }
 
 /* ---------- Temas ---------- */
 .temas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.temas__grid > * {
+  box-shadow: 0 8px 32px rgba(0,14,51,0.22);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.temas__grid > *:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 48px rgba(0,14,51,0.32);
+}
 
 /* ---------- Contato ---------- */
 .contato__card {

@@ -62,7 +62,7 @@ function Hero() {
             <Badge variant="neutral" size="sm">Palestras · Painéis · Workshops</Badge>
           </div>
           <h1 className="hero__title reveal">
-            Saúde e inovação<br />para <span className="text-blue">líderes</span>.
+            Saúde e inovação<br />para <em className="hero__title-em">líderes</em>.
           </h1>
           <p className="hero__lead reveal">
             Sou o Dr. Thiago Liguori, médico, PhD e Top Voice no LinkedIn. Levo
@@ -74,6 +74,23 @@ function Hero() {
               onClick={() => scrollToId('contato')}>Convide para um evento</Button>
             <Button variant="outline" size="lg"
               onClick={() => scrollToId('eventos')}>Veja no palco</Button>
+          </div>
+
+          <div className="hero__stats-bar reveal">
+            <div className="hero__stat">
+              <span className="hero__stat-num">53K</span>
+              <span className="hero__stat-label">Seguidores LinkedIn</span>
+            </div>
+            <div className="hero__stat-divider" />
+            <div className="hero__stat">
+              <span className="hero__stat-num">2.000+</span>
+              <span className="hero__stat-label">Líderes na newsletter</span>
+            </div>
+            <div className="hero__stat-divider" />
+            <div className="hero__stat">
+              <span className="hero__stat-num">9+</span>
+              <span className="hero__stat-label">Marcas atendidas</span>
+            </div>
           </div>
         </div>
 
