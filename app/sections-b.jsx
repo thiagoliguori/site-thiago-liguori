@@ -118,7 +118,16 @@ function Newsletter() {
         </div>
         <div className="news__form-wrap reveal">
           <NewsletterForm onDark cta="Quero receber" placeholder="Seu melhor e-mail"
-            onSubmit={(email) => console.log('inscrição:', email)} />
+            onSubmit={(email) => {
+              fetch('https://api.beehiiv.com/v2/publications/pub_bbbdefa6-69b6-45e4-9550-cf14c0829c53/subscriptions', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': 'Bearer zb729mx0KjRdFfye57Hqa4erYHX4VzJ9WBtWhImjeaB6nABhA7GGyBpZpfG0S6dO',
+                },
+                body: JSON.stringify({ email, reactivate_existing: true, send_welcome_email: true, utm_source: 'website' }),
+              });
+            }} />
           <p className="news__meta">Sem spam. Cancele quando quiser.</p>
         </div>
       </div>
