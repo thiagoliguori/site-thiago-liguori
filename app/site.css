@@ -155,7 +155,7 @@ a { color: inherit; }
 }
 
 /* portrait */
-.portrait { position: relative; justify-self: center; width: 100%; max-width: 420px; align-self: flex-end; }
+.portrait { position: relative; justify-self: center; width: 100%; max-width: 530px; align-self: flex-end; }
 .portrait__glow {
   position: absolute; inset: -10% -6% -4% -6%;
   background: radial-gradient(58% 56% at 56% 42%, var(--blue-300) 0%, rgba(126,169,230,0) 70%);
