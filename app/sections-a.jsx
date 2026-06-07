@@ -62,7 +62,7 @@ function Hero() {
             <Badge variant="neutral" size="sm">Palestras · Painéis · Workshops</Badge>
           </div>
           <h1 className="hero__title reveal">
-            Saúde e inovação<br />para <em className="hero__title-em">líderes</em>.
+            Saúde e inovação<br />para <em className="hero__title-em">líderes.</em>
           </h1>
           <p className="hero__lead reveal">
             Sou o Dr. Thiago Liguori, médico, PhD e Top Voice no LinkedIn. Levo
@@ -96,7 +96,6 @@ function Hero() {
 
         <div className="portrait portrait--cutout reveal">
           <div className="portrait__glow" />
-          <span className="portrait__name">Thiago Liguori, MD, PhD</span>
           <img className="portrait__img" src="assets/thiago-cutout.png" alt="Dr. Thiago Liguori" />
           <div className="portrait__badge">
             <Badge variant="brand" icon={<LinkedInGlyph />}>
