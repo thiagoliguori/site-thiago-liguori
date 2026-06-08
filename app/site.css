@@ -211,6 +211,8 @@ a { color: inherit; }
 }
 .creds__dot svg { width: 13px; height: 13px; }
 .creds strong { font-weight: var(--fw-bold); color: var(--text-ink); }
+.creds li:nth-child(-n+3) strong { color: var(--color-primary); }
+.creds li:nth-child(-n+3) .creds__dot { background: var(--blue-100); }
 
 /* ---------- Press ---------- */
 .press { text-align: center; }

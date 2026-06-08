@@ -57,7 +57,7 @@ function Temas() {
       <div className="container">
         <div className="section-head reveal">
           <p className="eyebrow">Principais temas</p>
-          <h2 className="section-title">Três conversas que eu posso levar ao seu palco.</h2>
+          <h2 className="section-title">Três conversas que conectam o que você ainda não conectou.</h2>
         </div>
         <div className="temas__grid reveal">
           {TEMAS.map(([i, t, d]) => (
@@ -111,9 +111,9 @@ function Newsletter() {
           <p className="eyebrow">Carta do Doc</p>
           <h2 className="section-title">Insights semanais sobre o mercado de saúde.</h2>
           <p className="section-sub">
-            Todo domingo à tarde eu compartilho um guia prático para navegar a saúde
-            e a inovação, com um toque de tecnologia no caminho. Junte-se a 2.000+
-            líderes em saúde.
+            Todo domingo à tarde: um guia para navegar saúde e inovação sem
+            enrolação. Ciência, mercado e tecnologia em linguagem de quem lidera.
+            2.000+ líderes já recebem.
           </p>
         </div>
         <div className="news__form-wrap reveal">

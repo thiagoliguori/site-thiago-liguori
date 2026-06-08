@@ -65,9 +65,9 @@ function Hero() {
             Saúde e inovação<br />para <em className="hero__title-em">líderes.</em>
           </h1>
           <p className="hero__lead reveal">
-            Sou o Dr. Thiago Liguori, médico, PhD e Top Voice no LinkedIn. Levo
-            ciência, inovação e tecnologia em saúde para palcos, painéis e workshops,
-            em linguagem prática para quem lidera o mercado.
+            Médico, PhD e Top Voice no LinkedIn. Conecto inovação, tecnologia e
+            negócios para preparar líderes para a saúde do futuro — com rigor
+            científico e linguagem de quem vive o mercado por dentro.
           </p>
           <div className="hero__cta reveal">
             <Button variant="primary" size="lg"
@@ -111,12 +111,12 @@ function Hero() {
 /* ---------------- Perfil ---------------- */
 const CREDENTIALS = [
   ['Médico cardiologista', 'pelo Hospital Sírio-Libanês'],
-  ['PhD em ciências médicas', 'pela USP'],
+  ['PhD em ciências médicas', 'pela Universidade de São Paulo'],
+  ['Alumni da Stanford Graduate School of Business', ''],
+  ['Coordenador do programa de Inteligência Artificial', 'na Afya'],
   ['Pós-graduação em telemedicina', 'pela USP'],
-  ['Alumni da Stanford GSB', ''],
   ['Chief Medical Officer', 'na Pipo Saúde (2020–2024)'],
   ['Fundador e CEO', 'da Turi Saúde'],
-  ['Coordenador do programa de IA', 'na Afya'],
   ['Top Voice no LinkedIn', '53.000 seguidores'],
 ];
 
@@ -133,11 +133,12 @@ function Perfil() {
       <div className="container perfil__grid">
         <div className="reveal">
           <p className="eyebrow">Perfil</p>
-          <h2 className="section-title">Um médico que traduz o mercado de saúde.</h2>
+          <h2 className="section-title">Na fronteira entre medicina, tecnologia e negócios.</h2>
           <p className="section-sub">
-            Cardiologista de formação, pesquisador por vocação e empreendedor por
-            escolha. Trabalho na fronteira entre medicina, tecnologia e gestão,
-            ajudando líderes a navegar a transformação da saúde com clareza e método.
+            Cardiologista de formação, pesquisador (PhD/USP, Stanford GSB) e
+            empreendedor por escolha. Fui CMO de uma das maiores healthtechs do
+            Brasil, fundei a Turi Saúde e hoje coordeno o programa de IA na Afya.
+            Conecto pontos que outros ainda não conectaram.
           </p>
         </div>
         <ul className="creds reveal">
