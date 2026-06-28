@@ -26,10 +26,18 @@ const LinkedInGlyph = ({ color = 'var(--color-primary)' }) => (
 /* ---------------- Header ---------------- */
 function SiteHeader() {
   const [stuck, setStuck] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
     const onScroll = () => setStuck(window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  React.useEffect(() => {
+    const mq = window.matchMedia('(max-width: 560px)');
+    const apply = () => setIsMobile(mq.matches);
+    apply();
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
   }, []);
   const links = [
     { label: 'Sobre', href: '#sobre' },
@@ -41,7 +49,7 @@ function SiteHeader() {
     <header className={'site-header' + (stuck ? ' is-stuck' : '')}>
       <Navbar
         links={links}
-        cta="Convide para um evento"
+        cta={isMobile ? 'Convidar' : 'Convide para um evento'}
         onNavigate={(l) => scrollToId(l.href.slice(1))}
         onCta={() => scrollToId('contato')}
       />
