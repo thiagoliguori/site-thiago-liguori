@@ -57,7 +57,7 @@ function Temas() {
       <div className="container">
         <div className="section-head reveal">
           <p className="eyebrow">Principais temas</p>
-          <h2 className="section-title">Três conversas que conectam o que você ainda não conectou.</h2>
+          <h2 className="section-title">Três conversas que conectam.</h2>
         </div>
         <div className="temas__grid reveal">
           {TEMAS.map(([i, t, d]) => (

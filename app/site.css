@@ -262,9 +262,30 @@ a { color: inherit; }
   transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
 }
 .temas__grid > *:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   box-shadow: 0 18px 48px rgba(0,14,51,0.32);
 }
+/* hover micro-animations inside the card: index pops, underline sweeps in */
+.temas__grid .tl-numcard__index {
+  display: inline-block;
+  transition: transform var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out);
+}
+.temas__grid > *:hover .tl-numcard__index {
+  transform: translateX(4px) scale(1.18);
+  opacity: 1;
+}
+.temas__grid .tl-numcard__title {
+  display: inline-block; position: relative; padding-bottom: 2px;
+}
+.temas__grid .tl-numcard__title::after {
+  content: '';
+  position: absolute; left: 0; bottom: -2px;
+  width: 100%; height: 2px; border-radius: 2px;
+  background: currentColor; opacity: .85;
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform .45s var(--ease-out);
+}
+.temas__grid > *:hover .tl-numcard__title::after { transform: scaleX(1); }
 
 /* ---------- Contato ---------- */
 .contato__card {
@@ -306,9 +327,65 @@ a { color: inherit; }
     will-change: opacity, transform;
   }
   .reveal.armed.in { opacity: 1; transform: none; }
+
+  /* ----- entrance: hero children rise in staggered on page load.
+     Above-the-fold elements are never .armed, so keyframes don't
+     conflict with the reveal transition. ----- */
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .hero__badges    { animation: rise-in .55s var(--ease-out) both; }
+  .hero__title     { animation: rise-in .55s var(--ease-out) .08s both; }
+  .hero__lead      { animation: rise-in .55s var(--ease-out) .16s both; }
+  .hero__cta       { animation: rise-in .55s var(--ease-out) .24s both; }
+  .hero__stats-bar { animation: rise-in .55s var(--ease-out) .34s both; }
+  .portrait        { animation: rise-in .7s  var(--ease-out) .12s both; }
+
+  /* soft breathing glow behind the portrait */
+  @keyframes glow-pulse {
+    0%, 100% { opacity: .8; transform: scale(1); }
+    50%      { opacity: 1;  transform: scale(1.035); }
+  }
+  .portrait__glow { animation: glow-pulse 7s ease-in-out infinite; }
+
+  /* staggered reveal for credential rows and stat blocks
+     (no hover transitions on these, so transition-delay is safe) */
+  .creds.armed li,
+  .stats.armed .stat {
+    opacity: 0; transform: translateY(12px);
+    transition: opacity .5s var(--ease-out), transform .5s var(--ease-out);
+  }
+  .creds.armed.in li,
+  .stats.armed.in .stat { opacity: 1; transform: none; }
+  .creds.armed.in li:nth-child(2), .stats.armed.in .stat:nth-child(2) { transition-delay: .07s; }
+  .creds.armed.in li:nth-child(3), .stats.armed.in .stat:nth-child(3) { transition-delay: .14s; }
+  .creds.armed.in li:nth-child(4), .stats.armed.in .stat:nth-child(4) { transition-delay: .21s; }
+  .creds.armed.in li:nth-child(5) { transition-delay: .28s; }
+  .creds.armed.in li:nth-child(6) { transition-delay: .35s; }
+  .creds.armed.in li:nth-child(7) { transition-delay: .42s; }
+  .creds.armed.in li:nth-child(8) { transition-delay: .49s; }
+
+  /* buttons: gentle lift on hover */
+  .tl-btn {
+    transition: transform var(--dur-fast) var(--ease-out),
+                box-shadow var(--dur-fast) var(--ease-out),
+                background-color var(--dur-fast) var(--ease-out),
+                color var(--dur-fast) var(--ease-out),
+                border-color var(--dur-fast) var(--ease-out),
+                opacity var(--dur-fast) var(--ease-out);
+  }
+  .tl-btn:hover { transform: translateY(-2px); }
+  .tl-btn:active { transform: translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+
+/* touch devices have no hover (and small screens generally):
+   keep gallery captions always visible */
+@media (hover: none), (max-width: 560px) {
+  .gallery__cap { opacity: 1; transform: none; }
 }
 
 /* ---------- Responsive ---------- */
@@ -335,11 +412,19 @@ a { color: inherit; }
   .gallery { columns: 1; }
   .hero__cta .tl-btn { width: 100%; }
 
-  /* portrait fits inside the gutter on small screens */
-  .portrait { max-width: 100%; width: 100%; }
+  /* smaller portrait so the headline shows up sooner on the first screen */
+  .portrait { max-width: 280px; width: 100%; }
+  .hero__grid { gap: var(--space-8); }
 
   /* hero title scales down so the longest word never overflows */
   .hero__title { font-size: clamp(2.5rem, 12vw, 3.25rem); }
+
+  /* tighter vertical rhythm on small screens */
+  .section { padding-block: 3.75rem; }
+  .section-title { font-size: clamp(1.7rem, 7.5vw, 2.15rem); }
+  .section-head { margin-bottom: var(--space-8); }
+  .stat__num { font-size: 2rem; }
+  .contato__email { font-size: var(--fs-body); }
 
   /* stats bar becomes a full-width, evenly-spaced row; labels wrap,
      dividers hide — no more nowrap blowout */
