@@ -412,9 +412,16 @@ a { color: inherit; }
   .gallery { columns: 1; }
   .hero__cta .tl-btn { width: 100%; }
 
-  /* smaller portrait so the headline shows up sooner on the first screen */
-  .portrait { max-width: 280px; width: 100%; }
-  .hero__grid { gap: var(--space-8); }
+  /* ----- mobile hero: content first, photo last -----
+     The pitch (badge → title → lead → CTAs → stats) fills the first
+     screen; the portrait closes the section instead of pushing the
+     headline below the fold. */
+  .portrait { order: 0; max-width: 300px; width: 100%; margin-top: var(--space-4); }
+  .hero__grid { gap: var(--space-6); padding-block: 2rem 2.5rem; }
+
+  /* hide the LinkedIn badge up top: on mobile it triples with the
+     photo badge (Top Voice · 53.000) and the stats bar (53K) */
+  .hero__badges .tl-badge--brand { display: none; }
 
   /* hero title scales down so the longest word never overflows */
   .hero__title { font-size: clamp(2.5rem, 12vw, 3.25rem); }
